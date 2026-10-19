@@ -29,6 +29,17 @@ public class RedCoin : MonoBehaviour
 
         collected = true;
 
+        // Show and initialize the bonus coin counter.
+        BonusCoinCounter counter =
+            FindFirstObjectByType<BonusCoinCounter>();
+
+        if (counter != null)
+        {
+            counter.gameObject.SetActive(true);
+            counter.ResetCounter();
+        }
+
+        // Spawn blue coins randomly across the platform.
         for (int i = 0; i < numberOfBlueCoins; i++)
         {
             Vector3 randomPosition = new Vector3(
